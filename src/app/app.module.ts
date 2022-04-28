@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     RegistrationComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetpasswordComponent
+    ResetPasswordComponent,
+   
   ],
   imports: [
     BrowserModule,
