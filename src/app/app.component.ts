@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core';//import the libraries that we ae used in our component.
 
 @Component({
   selector: 'app-root',

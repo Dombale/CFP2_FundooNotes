@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <mat-toolbar-row class="toolbar-row" fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+        </button>
+        <img class="img-example" src="./../../../assets/keepicon1.png" alt="image"
+            style="width: 40px; margin-left: 8px;">
+        <h1 class="title" style="margin-left: 1%;">Fundoo</h1>
+        <mat-form-field class="searchBar" appearance="outline">
+            <input matInput class="search" placeholder="Search">
+            <span mat-icon-button matPrefix><img src="../../../assets/search.png" width="25px" height="25px"></span>
+            <!-- <span mat-icon-button matSuffix ><img
+                    src="../../../assets/cancell.png" width="15px" height="15px"></span> -->
+
+        </mat-form-field>
+        <mat-nav-list class="mat-nav-list" fxLayout="row" fxHide fxShow.gt-xs>
+            <button mat-icon-button> <img src="../../../assets/refresh.svg" width="25px" height="25px"></button>
+            <button mat-icon-button> <img src="../../../assets/setting.svg" width="25px" height="25px"></button>
+            <span style="width: 40px;" fxHide.lt-md></span>
+
+            <button mat-icon-button> <img src="../../../assets/list.svg" width="25px" height="25px"> </button>
+            <button mat-icon-button> <img src="../../../assets/google.png" width="20px" height="20px"> </button>
+            <button mat-icon-button> <img src="../../../assets/login.png" width="22px" height="22px"> </button>
+        </mat-nav-list>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side">
+        <mat-nav-list>
+            <a mat-list-item><img src="../../../assets/keepicon2.png" width="25px" height="25px">Notes</a>
+            <a mat-list-item><img src="../../../assets/reminder.png" width="20px" height="25px">Reminders</a>
+            <a mat-list-item><img src="../../../assets/edit.png" width="25px" height="25px">Edit labels</a>
+            <a mat-list-item><img src="../../../assets/archive.png" width="25px" height="25px">Archive</a>
+            <a mat-list-item><img src="../../../assets/trash.jpg" width="25px" height="25px">Trash</a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+            <router-outlet>
+            </router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/userServices/user.service';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -9,7 +10,7 @@ export class ResetPasswordComponent implements OnInit {
   resettPasswordForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userdata: UserService) { }
 
   ngOnInit() {
       this.resettPasswordForm = this.formBuilder.group({
@@ -24,15 +25,21 @@ export class ResetPasswordComponent implements OnInit {
   get f() { return this.resettPasswordForm.controls; }
 
   onSubmit() {
-      this.submitted = true;
-      console.log("Successfully registered"+this.resettPasswordForm.value)
-      // stop here if form is invalid
-      if (this.resettPasswordForm.invalid) {
-          return;
-      }
-
-      // display form values on success
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.resettPasswordForm.value, null, 4));
+    console.log("reset success",this.resettPasswordForm.value)
+    // console.log(this.token);
+    if (this.resettPasswordForm.valid) {
+        // console.log("reset success");
+        let data={
+         newPassword:this.resettPasswordForm.value.password,
+         confirmPassword:this.resettPasswordForm.value.confirmPassword,
+        }
+        this.userdata.Reset(data).subscribe((response:any)=> {
+            console.log("Passward change successfully",response);
+            
+        })
+        
+    }
+      
   }
 
   onReset() {

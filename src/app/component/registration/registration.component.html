@@ -1,5 +1,5 @@
 <div class="container1">
-  <div class="container2">
+  <div class="container2" fxFlex.xs=100>
     <div class="Outer_container">
       <div class="form-title">
         <div class="title">
@@ -14,8 +14,8 @@
       </div>
       <form class="form-container" [formGroup]="registerForm" (ngSubmit)="register()">
         <div class="main_container">
-          <div class="first_line">
-            <mat-form-field appearance="outline" class="first_line1">
+          <div class="first_line" fxLayout="row" fxLayout.lt-lg="column">
+            <mat-form-field appearance="outline" class="first_line1"> 
               <mat-label>FirstName</mat-label>
               <input matInput placeholder="FirstName" formControlName="firstName">
               <mat-error>enter your first name</mat-error>
@@ -38,7 +38,7 @@
           <div class="first_line first_line1">
             <a class="button">Use my current email instead</a>
           </div>
-          <div class="first_line">
+          <div class="first_line" fxLayout="row" fxLayout.lt-lg="column">
             <mat-form-field appearance="outline" class="first_line1">
               <mat-label>Password</mat-label>
               <input matInput placeholder="Password" formControlName="password">
@@ -62,8 +62,8 @@
         </div>
       </form>
     </div>
-    <div class="img">
-      <img src="../../../assets/image2.svg" alt="" width="244" height="244" class="" fxHide.xs>
-      <p fxHide.xs> One account. All of Fundoo working for you.</p>
+    <div class="img" fxHide fxShow.gt-sm>
+      <img src="../../../assets/registration.jpeg" alt="" width="244" height="244">
+      <p> One account. All of Fundoo working for you.</p>
     </div>
-  </div>
+  </div> 

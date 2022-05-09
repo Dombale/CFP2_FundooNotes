@@ -1,42 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/userServices/user.service';
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+    selector: 'app-forgot-password',
+    templateUrl: './forgot-password.component.html',
+    styleUrls: ['./forgot-password.component.scss']
 })
+
 export class ForgotPasswordComponent implements OnInit {
-forgotPasswordForm!: FormGroup;
-  submitted = false;
+    forgotPasswordForm!: FormGroup;
+    submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder, private userdata: UserService) { }
 
-  ngOnInit() {
-      this.forgotPasswordForm = this.formBuilder.group({
-         
-          password: ['', [Validators.required, Validators.minLength(6)]],
-          
-         
-      });
-  }
+    ngOnInit() {
+        this.forgotPasswordForm = this.formBuilder.group({
 
-  // convenience getter for easy access to form fields
-  get f() { return this.forgotPasswordForm.controls; }
+            email: ['', [Validators.required, Validators.email]],
 
-  onSubmit() {
-      this.submitted = true;
 
-      // stop here if form is invalid
-      if (this.forgotPasswordForm.invalid) {
-          return;
-      }
+        });
+    }
 
-      // display form values on success
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.forgotPasswordForm.value, null, 4));
-  }
+    // convenience getter for easy access to form fields
+    get f() { return this.forgotPasswordForm.controls; }
 
-  onReset() {
-      this.submitted = false;
-      this.forgotPasswordForm.reset();
-  }
+    onSubmit() {
+        this.submitted = true;
+        if (this.forgotPasswordForm.valid) {
+            console.log("forgetpassward successfull");
+            let data = {
+
+                email: this.forgotPasswordForm.value.email,
+            }
+            this.userdata.Forgetpassward(data).subscribe((response: any) => {
+                console.log(response);
+
+            })
+        }
+
+
+    }
+
+    onReset() {
+        this.submitted = false;
+        this.forgotPasswordForm.reset();
+    }
 }
