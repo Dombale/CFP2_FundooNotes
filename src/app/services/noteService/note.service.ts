@@ -33,6 +33,17 @@ export class NoteService {
   
   
   }
+  updateNote(reqdata: any, noteId:any) {
+    this.token = localStorage.getItem('token');
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    return this.httpService.postService("/notes/updateNotes", reqdata, true, header)
+
+  }
 }
 
 

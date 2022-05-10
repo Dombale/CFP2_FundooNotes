@@ -29,9 +29,9 @@ import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { IconsComponent } from './component/icons/icons.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
 import { DisplayNoteComponent } from './component/display-note/display-note.component';
-import { MatDialogModule } from '@angular/material/dialog';
-
-
+import { UpdateNoteComponent } from './component/update-note/update-note.component';
+// import { MatDialog } from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -47,6 +47,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     IconsComponent,
     GetAllNotesComponent,
     DisplayNoteComponent,
+    UpdateNoteComponent,
 
 
   ],
@@ -57,7 +58,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule, MatInputModule, MatCheckboxModule,
     ReactiveFormsModule, HttpClientModule, FlexLayoutModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, FormsModule,
-    MatCardModule, MatDialogModule
+    MatCardModule,MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

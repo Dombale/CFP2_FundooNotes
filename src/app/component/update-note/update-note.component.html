@@ -1,16 +1,17 @@
 <div class="display-notes">
-    <mat-card class="note" *ngFor="let note of notesArray" >
+    <mat-card class="note">
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <span class="mat-title">{{note.title}}</span>
+            <input matInput class="mat-title" [(ngModel)]="title">
         </div>
 
         <div>
-            <span (click)="openDialog(note)">{{note.description}}</span>
+            <input matInput class="mat-title" [(ngModel)]="description">
         </div>
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <app-icons></app-icons>
+            <button mat-button (click)="onClick()">Close</button>
         </div>
     </mat-card>
 </div>
