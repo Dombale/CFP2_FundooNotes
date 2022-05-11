@@ -1,10 +1,10 @@
 <div class="display-notes">
     <mat-card class="note" *ngFor="let note of notesArray" >
-
+<mat-card-content class="textarea"(click)="openDialog(note)">
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <span class="mat-title">{{note.title}}</span>
         </div>
-
+    </mat-card-content>
         <div>
             <span (click)="openDialog(note)">{{note.description}}</span>
         </div>

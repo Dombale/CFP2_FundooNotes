@@ -33,7 +33,7 @@ export class NoteService {
   
   
   }
-  updateNote(reqdata: any, noteId:any) {
+  updateNote(reqdata: any) {
     this.token = localStorage.getItem('token');
     let header = {
       headers: new HttpHeaders({
