@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NoteService } from 'src/app/services/noteService/note.service';
 
@@ -10,24 +10,24 @@ import { NoteService } from 'src/app/services/noteService/note.service';
 export class UpdateNoteComponent implements OnInit {
   title: any;
   description: any;
-  noteId:any;
+  id: any;
   constructor(public dialogRef: MatDialogRef<UpdateNoteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private noteservice: NoteService) {}
+    @Inject(MAT_DIALOG_DATA) public data: any, private noteservice: NoteService) { }
 
   ngOnInit(): void {
     console.log(this.data)
-    this.title=this.data.title, this.description=this.data.description,this.noteId=this.data.noteId
+    this.title = this.data.title, this.description = this.data.description, this.id = this.data.id
   }
 
   onClose() {
     let reqdata = {
       title: this.title, description: this.description,
-      noteId:this.noteId
+      noteId: this.id
     }
     this.noteservice.updateNote(reqdata).subscribe((response: any) => {
       console.log(response);
       this.dialogRef.close(reqdata);
     })
   }
-  
+
 }

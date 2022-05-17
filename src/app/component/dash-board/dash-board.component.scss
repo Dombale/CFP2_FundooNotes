@@ -18,7 +18,7 @@
 
 .search {
     display: flex;
-    margin-left: 3%;
+    margin-left:3%;
     align-items: center;
 }
 
@@ -28,13 +28,13 @@
 }
 
 .mat-nav-list a:hover {
-    background-color: rgb(241, 235, 168);
+    background-color: rgb(245, 236, 224);
     border-radius: 10px 25px 25px 10px;
     border: 1px solid black;
 }
 
 button:hover {
-    background-color: rgb(221, 216, 216);
+    background-color: rgb(234, 232, 232)
 
 }
 
@@ -51,8 +51,8 @@ button:hover {
       margin-right: 0px;
     }
 }
-@media (max-width: 675px) {
-    .searchBar{
-        width: 150px;
+@media (max-width: 435px) {
+    .mat-toolbar-row{
+        width: 500px;
     }
 }

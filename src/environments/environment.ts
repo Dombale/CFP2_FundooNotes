@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseurl:"http://fundoonotes.incubation.bridgelabz.com/api/"
+  baseurl:"http://fundoonotes.incubation.bridgelabz.com/api"
 };
 
 /*

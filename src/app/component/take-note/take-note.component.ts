@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/noteService/note.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class TakeNoteComponent implements OnInit {
   public takeNote : boolean=false;
    title: string="";
   description :string="";
-
+@Output() messageEvent = new EventEmitter<string>();
   constructor(private noteservice: NoteService) { }
 
   ngOnInit(): void {
@@ -29,6 +29,8 @@ export class TakeNoteComponent implements OnInit {
     }
     this.noteservice.takeNote(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.messageEvent.emit(response)
+      console.log("messageEvent", this.messageEvent)
   })
   }
 

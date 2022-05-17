@@ -10,15 +10,17 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
   styleUrls: ['./display-note.component.scss']
 })
 export class DisplayNoteComponent implements OnInit {
-  @Input() notesArray:any
-  @Output() noteUpdated = new EventEmitter<any>();
+  @Input() notesArray:any;
+@Input() noteUpdated:any;
+@Output() updatedIconData = new EventEmitter<any>();
   constructor(private notesService : NoteService,public dialog: MatDialog) {}
-
+  title: any;
+  description: any;
   ngOnInit(): void {
     console.log(this.notesArray, "Notes Array has displayed")
-    
+   
   }
- 
+
   openDialog(note:any): void {
     console.log(note)
     const dialogRef = this.dialog.open(UpdateNoteComponent, {
@@ -28,8 +30,10 @@ export class DisplayNoteComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.noteUpdated.emit(result);
-      console.log(result, "result display")
+      this.noteUpdated.emit(result)
     });
+  }
+  iconMessage($event:any){
+    this.updatedIconData.emit($event);
   }
 }

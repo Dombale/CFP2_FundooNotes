@@ -15,6 +15,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -33,6 +35,10 @@ import { UpdateNoteComponent } from './component/update-note/update-note.compone
 // import { MatDialog } from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 
+import { TrashNoteComponent } from './component/trash-note/trash-note.component';
+import { ArchiveNoteComponent } from './component/archive-note/archive-note.component';
+
+
 
 @NgModule({
   declarations: [
@@ -48,6 +54,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     GetAllNotesComponent,
     DisplayNoteComponent,
     UpdateNoteComponent,
+    TrashNoteComponent,
+    ArchiveNoteComponent,
+    
 
 
   ],
@@ -58,7 +67,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule, MatInputModule, MatCheckboxModule,
     ReactiveFormsModule, HttpClientModule, FlexLayoutModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, FormsModule,
-    MatCardModule,MatDialogModule
+    MatCardModule,MatDialogModule,MatMenuModule,MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

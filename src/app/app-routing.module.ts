@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArchiveNoteComponent } from './component/archive-note/archive-note.component';
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
 import { DashComponent } from './component/dash/dash.component';
 import { DisplayNoteComponent } from './component/display-note/display-note.component';
@@ -9,6 +10,7 @@ import { LoginComponent } from './component/login/login.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { TakeNoteComponent } from './component/take-note/take-note.component';
+import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 
 const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
@@ -21,10 +23,14 @@ const routes: Routes = [
 
       { path: '', redirectTo: "/home/notes", pathMatch: 'full' },
       { path: 'notes', component: GetAllNotesComponent },
+      { path:'trash-note', component:TrashNoteComponent},
+      { path: 'archive-note', component:ArchiveNoteComponent},
+      // { path: 'display-note', component:DisplayNoteComponent }
 
     ]
   },
-  { path: 'display-note', component:DisplayNoteComponent },
+  
+
 ];
 
 @NgModule({
