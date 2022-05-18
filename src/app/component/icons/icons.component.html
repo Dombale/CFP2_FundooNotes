@@ -1,15 +1,61 @@
 <div class="icons" fxFlex="noshrink">
-        <button mat-icon-button matTooltip="Remind me" (click)="onReminder()"> <img src="../../../assets/note5.jpeg" width="20px"
-                        height="20px"></button>
+        <button mat-icon-button matTooltip="Remind me" [matMenuTriggerFor]="reminderMenu"> <img
+                        src="../../../assets/note5.jpeg" width="20px" height="20px"></button>
+        <mat-menu #reminderMenu="matMenu">
+                <span>Reminder:</span>
+                <button mat-menu-item (click)="onToday()" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>Later today</div>
+                        <div>08:PM</div>
+                </button>
+                <button mat-menu-item (click)="onTommorow()" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>Tomorrow </div>
+                        <div>08:AM</div>
+
+                </button>
+                <button mat-menu-item fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>Next week </div>
+                        <div>Mon,08:AM</div>
+
+                </button>
+
+                <button mat-menu-item>
+                        <button mat-menu-item [matMenuTriggerFor]="pickDate">
+                                <img src="../../../assets/pickDate.svg" width="20px" height="20px">Pick Date and Time
+                                <mat-menu #pickDate="matMenu">
+                                        <mat-form-field appearance="fill">
+                                                <mat-label>Choose a date </mat-label>
+
+                                                <input matInput [matDatepicker]="picker" [(ngModel)]="datePicker">
+
+                                                <mat-datepicker-toggle matSuffix [for]="picker">
+                                                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+
+
+                                        </mat-form-field>
+                                        <button mat-raised-button color="primary" (click)="onReminder() " >Primary</button>
+                                </mat-menu>
+                        </button>
+
+                </button>
+
+                <button mat-menu-item>
+                        <img src="../../../assets/location.svg" width="20px" height="20px">Pick Place
+                </button>
+
+        </mat-menu>
         <button mat-icon-button matTooltip="Collaborator"> <img src="../../../assets/note6.jpeg" width="20px"
                         height="20px"></button>
 
-        <button mat-icon-button matTooltip="Background Options" [matMenuTriggerFor]="menu"> <img
-                        src="../../../assets/note3.jpeg" width="20px" height="20px"></button>
-        <mat-menu #menu="matMenu">
+        <button mat-icon-button matTooltip="Background Options" [matMenuTriggerFor]="colorMenu"> <img
+                        src="../../../assets/note3.jpeg" width="20px" height="20px" background-color="transparent"  ></button>
+        <mat-menu #colorMenu="matMenu">
+
                 <button *ngFor="let color of colors" mat-mini-fab [style.background]="color?.Colorcode"
                         (click)="changeColor(color?.Colorcode)">
                 </button>
+
         </mat-menu>
         <button mat-icon-button matTooltip="Add image"> <img src="../../../assets/note2.jpeg" width="20px"
                         height="20px"></button>

@@ -17,10 +17,10 @@ export class TrashNoteComponent implements OnInit {
     this.notesService.getTrashNoteList().subscribe((response: any) => {
       console.log("GetAll Trash Notes successfully", response.data);
       this.trashList = response.data.data;
-      // this.trashList.reverse();
-      // this.trashList = this.trashList.filter((data: any) => {
-      //   return data.trashList.isTrash === true
-      // })
+      this.trashList.reverse();
+      this.trashList = this.trashList.filter((data: any) => {
+        return data.trashList.isTrash === true
+      })
 
     })
   }

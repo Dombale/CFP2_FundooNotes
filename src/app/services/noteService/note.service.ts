@@ -108,5 +108,15 @@ export class NoteService {
     return this.httpService.postService("/notes/changesColorNotes", reqdata, true, header)
 
 }
+reminder(reqdata: any) {
+  let header = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': this.token
+    })
+  }
+  return this.httpService.postService("/notes/addUpdateReminderNotes", reqdata, true, header)
+
+}
 
 }

@@ -17,6 +17,9 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -35,8 +38,10 @@ import { UpdateNoteComponent } from './component/update-note/update-note.compone
 // import { MatDialog } from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 
+
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { ArchiveNoteComponent } from './component/archive-note/archive-note.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 
 
 
@@ -56,6 +61,7 @@ import { ArchiveNoteComponent } from './component/archive-note/archive-note.comp
     UpdateNoteComponent,
     TrashNoteComponent,
     ArchiveNoteComponent,
+    ReminderComponent,
     
 
 
@@ -67,7 +73,7 @@ import { ArchiveNoteComponent } from './component/archive-note/archive-note.comp
     MatIconModule, MatInputModule, MatCheckboxModule,
     ReactiveFormsModule, HttpClientModule, FlexLayoutModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, FormsModule,
-    MatCardModule,MatDialogModule,MatMenuModule,MatTooltipModule,
+    MatCardModule,MatDialogModule,MatMenuModule,MatTooltipModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

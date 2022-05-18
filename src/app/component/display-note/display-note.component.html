@@ -8,7 +8,7 @@
         <div>
             <span (click)="openDialog(note)">{{note.description}}</span>
         </div>
-
+<div>{{note.reminder}}</div>
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <app-icons [noteObj]="note" (updatedIconData)="iconMessage($event)"></app-icons>
         </div>
