@@ -22,7 +22,7 @@ export class DashBoardComponent implements OnInit {
   notes(){
     this.router.navigateByUrl('/home/notes')
   }
-  // refresh(){
-  //   window.location.reload()
-  // }
+  reminder(){
+    this.router.navigateByUrl('/home/reminder')
+  }
 }

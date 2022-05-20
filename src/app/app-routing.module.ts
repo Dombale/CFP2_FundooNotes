@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path:'trash-note', component:TrashNoteComponent},
       { path: 'archive-note', component:ArchiveNoteComponent},
       // { path: 'display-note', component:DisplayNoteComponent }
+      { path:'reminder', component:ReminderComponent}
 
     ]
   },

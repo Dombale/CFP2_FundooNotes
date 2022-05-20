@@ -108,6 +108,19 @@ export class NoteService {
     return this.httpService.postService("/notes/changesColorNotes", reqdata, true, header)
 
 }
+// getUnArchiveNoteList() {
+//   this.token = localStorage.getItem('token')
+//   let headers = {
+//     headers: new HttpHeaders({
+
+//       'Content-type': 'application/json',
+//       'Authorization': this.token
+//     })
+//   }
+//   return this.httpService.getService('/notes/getNotesList', true, headers)
+
+
+// }
 reminder(reqdata: any) {
   let header = {
     headers: new HttpHeaders({
@@ -116,6 +129,19 @@ reminder(reqdata: any) {
     })
   }
   return this.httpService.postService("/notes/addUpdateReminderNotes", reqdata, true, header)
+
+}
+reminderNoteList() {
+  this.token = localStorage.getItem('token')
+  let headers = {
+    headers: new HttpHeaders({
+
+      'Content-type': 'application/json',
+      'Authorization': this.token
+    })
+  }
+  return this.httpService.getService('/notes/getTrashNotesList', true, headers)
+
 
 }
 

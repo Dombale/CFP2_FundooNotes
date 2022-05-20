@@ -27,7 +27,7 @@
     <mat-sidenav #sidenav opened="true" mode="side">
         <mat-nav-list>
             <a mat-list-item (click)="notes()"><img src="../../../assets/keep2.jpeg" width="25px" height="25px">Notes</a>
-            <a mat-list-item><img src="../../../assets/reminder.png" width="20px" height="25px">Reminders</a>
+            <a mat-list-item (click)="reminder()"><img src="../../../assets/reminder.png" width="20px" height="25px">Reminders</a>
             <a mat-list-item><img src="../../../assets/edit.jpeg" width="25px" height="25px">Edit labels</a>
             <a mat-list-item (click)="onArchive()"><img src="../../../assets/note.jpeg" width="25px" height="25px">Archive</a>
             <a mat-list-item (click)="onTrash()"><img src="../../../assets/delete.jpeg" width="25px" height="25px">Trash</a>

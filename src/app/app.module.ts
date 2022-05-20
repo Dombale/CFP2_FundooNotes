@@ -20,6 +20,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -35,8 +38,8 @@ import { IconsComponent } from './component/icons/icons.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
 import { DisplayNoteComponent } from './component/display-note/display-note.component';
 import { UpdateNoteComponent } from './component/update-note/update-note.component';
-// import { MatDialog } from '@angular/material/dialog';
-import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
@@ -73,8 +76,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
     MatIconModule, MatInputModule, MatCheckboxModule,
     ReactiveFormsModule, HttpClientModule, FlexLayoutModule,
     MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, FormsModule,
-    MatCardModule,MatDialogModule,MatMenuModule,MatTooltipModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule
-  ],
+    MatCardModule,MatDialogModule,MatMenuModule,MatTooltipModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule,MatAutocompleteModule
+    ,MatExpansionModule],
   providers: [],
   bootstrap: [AppComponent]
 })

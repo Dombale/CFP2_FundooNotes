@@ -1,18 +1,20 @@
 <div class="icons" fxFlex="noshrink">
-        <button mat-icon-button matTooltip="Remind me" [matMenuTriggerFor]="reminderMenu"> <img
-                        src="../../../assets/note5.jpeg" width="20px" height="20px"></button>
+        <button *ngIf=!isTrashed mat-icon-button matTooltip="Remind me" [matMenuTriggerFor]="reminderMenu"> <img
+                        src="../../../assets/reminder.svg" width="20px" height="20px"></button>
         <mat-menu #reminderMenu="matMenu">
                 <span>Reminder:</span>
                 <button mat-menu-item (click)="onToday()" fxLayout="row" fxLayoutAlign="space-between center">
                         <div>Later today</div>
                         <div>08:PM</div>
+                      
                 </button>
                 <button mat-menu-item (click)="onTommorow()" fxLayout="row" fxLayoutAlign="space-between center">
                         <div>Tomorrow </div>
                         <div>08:AM</div>
+                      
 
                 </button>
-                <button mat-menu-item fxLayout="row" fxLayoutAlign="space-between center">
+                <button mat-menu-item (click)="onNextMonday()" fxLayout="row" fxLayoutAlign="space-between center">
                         <div>Next week </div>
                         <div>Mon,08:AM</div>
 
@@ -24,17 +26,59 @@
                                 <mat-menu #pickDate="matMenu">
                                         <mat-form-field appearance="fill">
                                                 <mat-label>Choose a date </mat-label>
-
                                                 <input matInput [matDatepicker]="picker" [(ngModel)]="datePicker">
-
                                                 <mat-datepicker-toggle matSuffix [for]="picker">
                                                         <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                                                 </mat-datepicker-toggle>
                                                 <mat-datepicker #picker></mat-datepicker>
-
-
                                         </mat-form-field>
-                                        <button mat-raised-button color="primary" (click)="onReminder() " >Primary</button>
+                                        <!-- <mat-form-field appearance="fill">
+                                                <mat-label>Favorite food</mat-label>
+                                                <mat-select [(ngModel)]="selectedValue" name="food">
+                                                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                                                    {{food.viewValue}}
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field> -->
+                                        <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+                                        <mat-menu #menu="matMenu">
+                                                <button mat-menu-item>Item 1</button>
+                                                <button mat-menu-item>Item 2</button>
+                                        </mat-menu> -->
+                                        <!-- <form class="example-form">
+                                                <mat-form-field class="example-full-width" appearance="fill">
+                                                  <mat-label>Number</mat-label>
+                                                  <input type="text"
+                                                         placeholder="Pick one"
+                                                         aria-label="Number"
+                                                         matInput
+                                                         [formControl]="myControl"
+                                                         [matAutocomplete]="auto">
+                                                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                                      {{option}}
+                                                    </mat-option>
+                                                  </mat-autocomplete>
+                                                </mat-form-field>
+                                              </form> -->
+                                        <!-- <mat-expansion-panel>
+                                                <mat-expansion-panel-header>
+                                                  <mat-panel-title>
+                                                    Day of the trip
+                                                  </mat-panel-title>
+                                                  <mat-panel-description>
+                                                    Inform the date you wish to travel
+                                                    <mat-icon>date_range</mat-icon>
+                                                  </mat-panel-description>
+                                                </mat-expansion-panel-header>
+                                            
+                                                <mat-form-field appearance="fill">
+                                                  <mat-label>Date</mat-label>
+                                                  <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+                                                </mat-form-field>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                              </mat-expansion-panel> -->
+                                        <button mat-button (click)="onReminder() ">Save</button>
                                 </mat-menu>
                         </button>
 
@@ -45,11 +89,12 @@
                 </button>
 
         </mat-menu>
-        <button mat-icon-button matTooltip="Collaborator"> <img src="../../../assets/note6.jpeg" width="20px"
-                        height="20px"></button>
+        <button *ngIf=!isTrashed mat-icon-button matTooltip="Collaborator"> <img src="../../../assets/collaborator.svg"
+                        width="20px" height="20px"></button>
 
-        <button mat-icon-button matTooltip="Background Options" [matMenuTriggerFor]="colorMenu"> <img
-                        src="../../../assets/note3.jpeg" width="20px" height="20px" background-color="transparent"  ></button>
+        <button *ngIf=!isTrashed mat-icon-button matTooltip="Background Options" [matMenuTriggerFor]="colorMenu"> <img
+                        src="../../../assets/backgroundcolor.svg" width="20px" height="20px"
+                        background-color="transparent"></button>
         <mat-menu #colorMenu="matMenu">
 
                 <button *ngFor="let color of colors" mat-mini-fab [style.background]="color?.Colorcode"
@@ -57,14 +102,19 @@
                 </button>
 
         </mat-menu>
-        <button mat-icon-button matTooltip="Add image"> <img src="../../../assets/note2.jpeg" width="20px"
-                        height="20px"></button>
-        <button mat-icon-button matTooltip="Archive" (click)="onArchive()"><img src="../../../assets/note.jpeg"
+        <button *ngIf=!isTrashed mat-icon-button matTooltip="Add image"> <img src="../../../assets/backgroundimage.svg"
                         width="20px" height="20px"></button>
-
-        <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img src="../../../assets/more.jpeg"
-                        width="20px" height="20px"></button>
+        <button *ngIf="!isTrashed && !isArchived" mat-icon-button matTooltip="Archive" (click)="onArchive()"><img
+                        src="../../../assets/archive.svg" width="20px" height="20px"></button>
+        <button *ngIf="!isTrashed && isArchived" mat-icon-button matTooltip="Unarchive"><img
+                        src="../../../assets/unarchive.svg" width="20px" height="20px"></button>
+        <button *ngIf=isTrashed mat-icon-button matTooltip="Delete Forever" (click)="delete()"> <img
+                        src="../../../assets/deleteforever.svg" width="20px" height="20px"></button>
+        <button *ngIf="isTrashed " mat-icon-button matTooltip="Restore" (click)="onTrash()"> <img
+                        src="../../../assets/restore.svg" width="20px" height="20px"></button>
+        <button *ngIf=!isTrashed mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img
+                        src="../../../assets/3dot.svg" width="20px" height="20px"></button>
         <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="onDelete()">Delete note</button>
+                <button mat-menu-item (click)="onTrash()">Delete note</button>
         </mat-menu>
 </div>

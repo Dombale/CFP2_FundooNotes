@@ -16,6 +16,7 @@ export class DisplayNoteComponent implements OnInit {
   constructor(private notesService : NoteService,public dialog: MatDialog) {}
   title: any;
   description: any;
+  ishide = true;
   ngOnInit(): void {
     console.log(this.notesArray, "Notes Array has displayed")
    
