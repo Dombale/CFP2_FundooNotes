@@ -1,16 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/internal/Observable';
 import { NoteService } from 'src/app/services/noteService/note.service';
 import { ArchiveNoteComponent } from '../archive-note/archive-note.component';
 import { DisplayNoteComponent } from '../display-note/display-note.component';
 import { TrashNoteComponent } from '../trash-note/trash-note.component';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
+
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
@@ -19,13 +14,6 @@ interface Food {
 export class IconsComponent implements OnInit {
 
 
-  // selectedValue :string="";
-
-  // foods: Food[] = [
-  //   {value: 'steak-0', viewValue: 'Steak'},
-  //   {value: 'pizza-1', viewValue: 'Pizza'},
-  //   {value: 'tacos-2', viewValue: 'Tacos'},
-  // ];
   
   @Input() noteObj: any;
   @Output() updatedIconData = new EventEmitter<any>();
@@ -42,14 +30,11 @@ export class IconsComponent implements OnInit {
   isDeleted: boolean = false;
   isTrashed: boolean = false;
   isArchived: boolean = false;
-  // myControl = new FormControl();
-  // options: string[] = ['One', 'Two', 'Three'];
-  // filteredOptions!: Observable<string[]>;
+  
 
   ngOnInit(): void {
     let comp = this.route.snapshot.component;
     if (comp == DisplayNoteComponent) {
-      // this.isDisplayNoteComponent = true;
     }
 
     if (comp == TrashNoteComponent) {
@@ -58,7 +43,6 @@ export class IconsComponent implements OnInit {
     }
     if (comp == ArchiveNoteComponent) {
       this.isArchived = true;
-      // console.log(this.isArchiveComponent);
     }
 
   }
@@ -83,18 +67,38 @@ export class IconsComponent implements OnInit {
       this.updatedIconData.emit(response);
     })
   }
-  // onUnArchive() {
-  //   let req = {
-  //     noteIdList: [this.noteObj.id],
-  //     isArchived: false
-  //   }
-  //   this.noteservice.getNoteList(req).subscribe((response: any) => {
-  //     console.log("Note Archived Successfully", response);
-  //     this.updatedIconData.emit(response);
-  //   })
-  // }
-  delete(){
-
+  onUnArchive() {
+    let req = {
+      noteIdList: [this.noteObj.id],
+      isArchived: false
+    }
+    this.noteservice.archivedNote(req).subscribe((response: any) => {
+      console.log("Note unArchived Successfully", response);
+      this.updatedIconData.emit(response);
+    })
+  }
+  deletForever(){
+    let req ={
+      noteList:[this.noteObj.id],
+      isDeleted:false,
+      isArchived:false
+    }
+    this.noteservice.deleteForever(req).subscribe((response: any) =>{
+      console.log("Note deleted forever successfully", response);
+      this.updatedIconData.emit(response);
+    })
+    
+  }
+  restore(){
+    let req = {
+      noteIdList: [this.noteObj.id],
+      isDeleted: false
+    }
+    this.noteservice.archivedNote(req).subscribe((response: any) => {
+      console.log("Note Restored Successfully", response);
+      this.updatedIconData.emit(response);
+    })
+    
   }
   changeColor(Notecolor: any) {
     this.noteObj.color;

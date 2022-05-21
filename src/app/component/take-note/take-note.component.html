@@ -1,22 +1,26 @@
-   <mat-card class="take-note" fxFlex="noshrink">
+<mat-card class="take-note" fxFlex="noshrink">
 
-    <div *ngIf="takeNote" fxLayout="row" fxLayoutAlign="space-between center">
-      <mat-card-title > <input matInput placeholder="Title" [(ngModel)]="title" required> </mat-card-title>
-      <button mat-icon-button> <img src="../../../assets/pin.jpeg" width="20px" height="20px" ></button>
+  <div *ngIf="takeNote" fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-card-title> <input matInput placeholder="Title" [(ngModel)]="title" required> </mat-card-title>
+    <button mat-icon-button> <img src="../../../assets/pin.jpeg" width="20px" height="20px"></button>
+  </div>
+
+  <div (click)="createNote()" fxLayout="row" fxLayoutAlign="space-between center">
+    <input class="description" matInput placeholder="Take a note..." [(ngModel)]="description" style="width: 300px;"
+      required>
+    <div *ngIf="!takeNote" fxLayoutAlign="space-between center">
+      <button mat-icon-button matTooltip="New List"> <img src="../../../assets/checkbox.jpeg" width="24px"
+          height="24px"></button>
+      <button mat-icon-button matTooltip="New note With drawing"> <img src="../../../assets/brush.jpeg" width="24px"
+          height="24px"></button>
+      <button mat-icon-button matTooltip="New note With image"> <img src="../../../assets/note2.jpeg" width="24px"
+          height="24px"></button>
     </div>
-  
-    <div (click)="createNote()" fxLayout="row" fxLayoutAlign="space-between center">
-        <input class="description" matInput placeholder="Take a note..." [(ngModel)]="description" style="width: 300px;" required> 
-      <div *ngIf="!takeNote" fxLayoutAlign="space-between center">
-        <button mat-icon-button matTooltip="New List"> <img src="../../../assets/checkbox.jpeg" width="24px" height="24px"></button>
-        <button mat-icon-button matTooltip="New note With drawing"> <img src="../../../assets/brush.jpeg" width="24px" height="24px"></button>
-        <button mat-icon-button matTooltip="New note With image"> <img src="../../../assets/note2.jpeg" width="24px" height="24px"></button>
-      </div>
-    </div>
-  
-      <mat-card-actions *ngIf="takeNote" fxLayout="row" fxLayoutAlign="space-between center">
-        <app-icons></app-icons>
-        <button mat-flat-button (click)="closeNote();">Close</button>
-      </mat-card-actions>
-  
-    </mat-card>
+  </div>
+
+  <mat-card-actions *ngIf="takeNote" fxLayout="row" fxLayoutAlign="space-between center">
+    <app-icons></app-icons>
+    <button mat-flat-button (click)="closeNote();">Close</button>
+  </mat-card-actions>
+
+</mat-card>

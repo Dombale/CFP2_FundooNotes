@@ -19,7 +19,7 @@ export class TrashNoteComponent implements OnInit {
       this.trashList = response.data.data;
       this.trashList.reverse();
       this.trashList = this.trashList.filter((data: any) => {
-        return data.trashList.isTrash === true
+        return data.trashList.isTrashed===true
       })
 
     })

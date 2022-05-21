@@ -1,5 +1,5 @@
 <div class="display-notes">
-    <mat-card class="note" *ngFor="let note of notesArray" [style.background]="note.color">
+    <mat-card class="card" *ngFor="let note of notesArray" [style.background]="note.color">
         <mat-card-content class="textarea" (click)="openDialog(note)">
             <div fxLayout="row" fxLayoutAlign="space-between center">
                 <span class="mat-title">{{note.title}}</span>
@@ -8,14 +8,12 @@
         <div>
             <span (click)="openDialog(note)">{{note.description}}</span>
         </div>
-<span class="reminder">{{note.reminder | date:' EEEE dd MMM yyyy HH:mm aa'}}
-    <!-- <button mat-icon-button [disabled]="payloadArray.enabled != 'true' " color="primary" >
-        <mat-icon color="warn" style="cursor: pointer;" >delete</mat-icon>
-     </button> -->
-    <button mat-icon-button><img src="../../../assets/cancel.svg"
-        width="15px" height="15px"></button>
-        <!-- <button [disabled]="ishide">Subscribe</button> -->
-</span>
+        <span class="reminder" *ngIf="note.reminder.length != 0">{{note.reminder | date:"EEEE dd-MMM-yyyy HH:mm aa"}}
+
+            <button mat-icon-button (click)="onClose()"><img src="../../../assets/cancel.svg" width="15px"
+                    height="15px"></button>
+
+        </span>
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <app-icons [noteObj]="note" (updatedIconData)="iconMessage($event)"></app-icons>
         </div>

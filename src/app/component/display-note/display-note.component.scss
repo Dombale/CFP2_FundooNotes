@@ -3,18 +3,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    // border : 3px solid red;
 }
 
-.note{
+.card{
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-content: center;
     border-radius: 10px;
-    box-shadow: 1px 1px 4px gray;
+    // box-shadow: 1px 1px 4px gray;
     border: 1px solid lightgray;
     width: 250px;
     justify-content: space-between;
+    // border : 3px solid red;
 }
 .reminder{
     display:block;
@@ -23,4 +25,13 @@
     border: 1px solid lightgray;
     // width: 150px;
     // height: fit-content;
+}
+@media (max-width: 726px) {
+    .card{
+        width: 350px;
+        margin: 20px;
+    }
+    .display-notes{
+        justify-content: center;
+    }
 }

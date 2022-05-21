@@ -21,5 +21,8 @@ export class ArchiveNoteComponent implements OnInit {
         
     })
   }
+  displayMessage(event:any){
+    this.getArchiveNotes();
+  }
 
 }

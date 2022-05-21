@@ -84,6 +84,17 @@ export class NoteService {
   
   
   }
+  deleteForever(reqdata: any) {
+    this.token = localStorage.getItem('token');
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    return this.httpService.postService("/notes/deleteForeverNotes", reqdata, true, header)
+
+  }
   getArchiveNoteList() {
     this.token = localStorage.getItem('token')
     let headers = {
@@ -108,19 +119,7 @@ export class NoteService {
     return this.httpService.postService("/notes/changesColorNotes", reqdata, true, header)
 
 }
-// getUnArchiveNoteList() {
-//   this.token = localStorage.getItem('token')
-//   let headers = {
-//     headers: new HttpHeaders({
 
-//       'Content-type': 'application/json',
-//       'Authorization': this.token
-//     })
-//   }
-//   return this.httpService.getService('/notes/getNotesList', true, headers)
-
-
-// }
 reminder(reqdata: any) {
   let header = {
     headers: new HttpHeaders({
@@ -140,7 +139,7 @@ reminderNoteList() {
       'Authorization': this.token
     })
   }
-  return this.httpService.getService('/notes/getTrashNotesList', true, headers)
+  return this.httpService.getService('/notes/getReminderNotesList', true, headers)
 
 
 }

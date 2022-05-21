@@ -1,5 +1,5 @@
-<div class="display-notes">
-    <mat-card class="note">
+<div class="display-notes" >
+    <mat-card class="note"[style.background]="color" >
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <input matInput class="mat-title" [(ngModel)]="title">
@@ -10,7 +10,7 @@
         </div>
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
-            <app-icons></app-icons>
+            <app-icons [noteObj]="data" (updatedIconData)="iconMessage($event)"></app-icons>
             <button mat-button (click)="onClose()">Close</button>
         </div>
     </mat-card>

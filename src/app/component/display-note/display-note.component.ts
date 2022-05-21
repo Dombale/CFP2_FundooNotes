@@ -16,7 +16,8 @@ export class DisplayNoteComponent implements OnInit {
   constructor(private notesService : NoteService,public dialog: MatDialog) {}
   title: any;
   description: any;
-  ishide = true;
+  reminder:any
+
   ngOnInit(): void {
     console.log(this.notesArray, "Notes Array has displayed")
    
@@ -36,5 +37,8 @@ export class DisplayNoteComponent implements OnInit {
   }
   iconMessage($event:any){
     this.updatedIconData.emit($event);
+  }
+  onClose(){
+  
   }
 }

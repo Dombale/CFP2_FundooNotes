@@ -11,8 +11,11 @@ export class UpdateNoteComponent implements OnInit {
   title: any;
   description: any;
   id: any;
+  color:any;
   constructor(public dialogRef: MatDialogRef<UpdateNoteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private noteservice: NoteService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private noteservice: NoteService) { 
+      this.color=data.color
+     }
 
   ngOnInit(): void {
     console.log(this.data)
@@ -30,4 +33,7 @@ export class UpdateNoteComponent implements OnInit {
     })
   }
 
+  iconMessage(event:any){
+    this.color=event.data.color
+  }
 }
