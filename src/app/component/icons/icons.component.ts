@@ -14,23 +14,23 @@ import { TrashNoteComponent } from '../trash-note/trash-note.component';
 export class IconsComponent implements OnInit {
 
 
-  
+
   @Input() noteObj: any;
   @Output() updatedIconData = new EventEmitter<any>();
 
-  
+
   datePicker: any;
   today = new Date();
   tommorow = new Date(this.today);
   nextMonday = new Date(this.today);
 
-  constructor(private noteservice: NoteService, private route:ActivatedRoute) { }
+  constructor(private noteservice: NoteService, private route: ActivatedRoute) { }
   colors = [{ name: 'white', Colorcode: '#d78cb9' }, { name: 'peach', Colorcode: '#f28b82' }, { name: 'pink', Colorcode: '#FFFEA9' }, { name: 'lemon', Colorcode: '#d7aefb' }, { name: 'brown', Colorcode: '#b5e39c' }, { name: 'green', Colorcode: '#e6ba81' }, { name: 'blue', Colorcode: '#cbf0f8' }]
 
   isDeleted: boolean = false;
   isTrashed: boolean = false;
   isArchived: boolean = false;
-  
+
 
   ngOnInit(): void {
     let comp = this.route.snapshot.component;
@@ -77,29 +77,28 @@ export class IconsComponent implements OnInit {
       this.updatedIconData.emit(response);
     })
   }
-  deletForever(){
-    let req ={
-      noteList:[this.noteObj.id],
-      isDeleted:false,
-      isArchived:false
-    }
-    this.noteservice.deleteForever(req).subscribe((response: any) =>{
-      console.log("Note deleted forever successfully", response);
-      this.updatedIconData.emit(response);
-    })
-    
-  }
-  restore(){
+  deletForever() {
     let req = {
       noteIdList: [this.noteObj.id],
-      isDeleted: false
+      isDeleted: true
     }
-    this.noteservice.archivedNote(req).subscribe((response: any) => {
-      console.log("Note Restored Successfully", response);
+    this.noteservice.deletForevernote(req).subscribe((response: any) => {
+      console.log('Note deleted forever successfully', response);
       this.updatedIconData.emit(response);
     })
-    
   }
+  
+  // restore(){
+  //   let req = {
+  //     noteIdList: [this.noteObj.id],
+  //     isDeleted: true
+  //   }
+  //   this.noteservice.archivedNote(req).subscribe((response: any) => {
+  //     console.log("Note Restored Successfully", response);
+  //     this.updatedIconData.emit(response);
+  //   })
+
+  // }
   changeColor(Notecolor: any) {
     this.noteObj.color;
     let req = {
@@ -112,7 +111,7 @@ export class IconsComponent implements OnInit {
       this.updatedIconData.emit(Notecolor);
     })
   }
- 
+
   onReminder() {
     console.log(this.datePicker);
     let req = {
@@ -138,7 +137,7 @@ export class IconsComponent implements OnInit {
   onTommorow() {
 
     this.tommorow.setDate(this.today.getDate() + 1)
-    this.tommorow.setHours(8, 0, 0)
+
     let req = {
       noteIdList: [this.noteObj.id],
       reminder: this.tommorow
@@ -150,8 +149,8 @@ export class IconsComponent implements OnInit {
   }
 
   onNextMonday() {
-   
-   this.nextMonday.setDate(this.today.getDate() + ((7 - this.today.getDay()) % 7 + 1) % 7);
+
+    this.nextMonday.setDate(this.today.getDate() + ((7 - this.today.getDay()) % 7 + 1) % 7);
     let req = {
       noteIdList: [this.noteObj.id],
       reminder: this.nextMonday

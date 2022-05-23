@@ -45,17 +45,3 @@ button:hover {
     }
 }
 
-@media (max-width: 800px) {
-    .searchBar{
-      margin-left: 10px;
-      margin-right: 0px;
-    }
-}
-@media (max-width: 435px) {
-    .mat-toolbar-row{
-        width: 500px;
-    }
-    .mat-toolbar-multiple-rows{
-        width: 127%;
-    }
-}

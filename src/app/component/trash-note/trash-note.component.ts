@@ -24,5 +24,7 @@ export class TrashNoteComponent implements OnInit {
 
     })
   }
-
+  displayMessage(event:any){
+    this.getTrashNotes();
+  }
 }

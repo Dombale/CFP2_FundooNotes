@@ -8,10 +8,10 @@
         <div>
             <span (click)="openDialog(note)">{{note.description}}</span>
         </div>
-        <span class="reminder" *ngIf="note.reminder.length != 0">{{note.reminder | date:"EEEE dd-MMM-yyyy HH:mm aa"}}
+        <span class="reminder" *ngIf="note.reminder.length != 0 ">{{note.reminder | date:"EEEE dd-MMM-yyyy HH:mm aa"}}
 
-            <button mat-icon-button (click)="onClose()"><img src="../../../assets/cancel.svg" width="15px"
-                    height="15px"></button>
+            <!-- <button mat-icon-button (click)="onClose()"><img src="../../../assets/cancel.svg" width="15px"
+                    height="15px"></button> -->
 
         </span>
         <div fxLayout="row" fxLayoutAlign="space-between center">

@@ -23,6 +23,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AuthgardserviceService } from './services/authgardservice.service';
+
+
 
 
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -38,10 +41,6 @@ import { IconsComponent } from './component/icons/icons.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
 import { DisplayNoteComponent } from './component/display-note/display-note.component';
 import { UpdateNoteComponent } from './component/update-note/update-note.component';
-
-
-
-
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { ArchiveNoteComponent } from './component/archive-note/archive-note.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
@@ -78,7 +77,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
     MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, FormsModule,
     MatCardModule,MatDialogModule,MatMenuModule,MatTooltipModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule,MatAutocompleteModule
     ,MatExpansionModule],
-  providers: [],
+    
+  providers: [AuthgardserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

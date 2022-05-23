@@ -84,17 +84,7 @@ export class NoteService {
   
   
   }
-  deleteForever(reqdata: any) {
-    this.token = localStorage.getItem('token');
-    let header = {
-      headers: new HttpHeaders({
-        'Content-type': 'application/json',
-        'Authorization': this.token
-      })
-    }
-    return this.httpService.postService("/notes/deleteForeverNotes", reqdata, true, header)
-
-  }
+ 
   getArchiveNoteList() {
     this.token = localStorage.getItem('token')
     let headers = {
@@ -143,5 +133,14 @@ reminderNoteList() {
 
 
 }
+deletForevernote(reqdata: any) {
+  let header = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': this.token
+    })
+  }
+  return this.httpService.postService("/notes/deleteForeverNotes", reqdata, true, header)
 
+}
 }

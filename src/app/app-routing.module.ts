@@ -12,14 +12,16 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
+import { AuthenticationGuard } from './authentication.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   {path:'reset-password',component:ResetPasswordComponent},
   {
-    path: 'home', component: DashBoardComponent,
+    path: 'home', component: DashBoardComponent,canActivate:[AuthenticationGuard],
     children: [
 
       { path: '', redirectTo: "/home/notes", pathMatch: 'full' },
