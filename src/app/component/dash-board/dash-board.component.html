@@ -6,8 +6,8 @@
         <img class="img-example" src="./../../../assets/keep1.jpeg" alt="image"
             style="width: 40px; margin-left: 8px;">
         <h1 class="title" style="margin-left: 1%;">Fundoo</h1>
-        <mat-form-field class="searchBar" appearance="outline" fxHide fxShow.gt-md>
-            <input matInput class="search" placeholder="Search">
+        <mat-form-field class="searchBar" appearance="outline" fxHide fxShow.gt-xs>
+            <input matInput class="search" placeholder="Search" (keyup)="searchNote($event)">
             <span mat-icon-button matPrefix><img src="../../../assets/Search-icon.svg" width="25px" height="25px"></span>
             <span mat-icon-button matSuffix ><img
                     src="../../../assets/cancel.jpeg" width="15px" height="15px"></span>

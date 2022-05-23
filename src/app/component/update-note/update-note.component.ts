@@ -12,6 +12,7 @@ export class UpdateNoteComponent implements OnInit {
   description: any;
   id: any;
   color:any;
+  reminder:any;
   constructor(public dialogRef: MatDialogRef<UpdateNoteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private noteservice: NoteService) { 
       this.color=data.color
@@ -19,13 +20,13 @@ export class UpdateNoteComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data)
-    this.title = this.data.title, this.description = this.data.description, this.id = this.data.id
+    this.title = this.data.title, this.description = this.data.description, this.id = this.data.id, this.reminder = this.data.reminder
   }
 
   onClose() {
     let reqdata = {
       title: this.title, description: this.description,
-      noteId: this.id
+      noteId: this.id, reminder:this.reminder
     }
     this.noteservice.updateNote(reqdata).subscribe((response: any) => {
       console.log(response);

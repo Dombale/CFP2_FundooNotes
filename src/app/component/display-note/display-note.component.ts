@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { NoteService } from 'src/app/services/noteService/note.service';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
-
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-display-note',
@@ -10,24 +9,30 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
   styleUrls: ['./display-note.component.scss']
 })
 export class DisplayNoteComponent implements OnInit {
-  @Input() notesArray:any;
-@Input() noteUpdated:any;
-@Output() updatedIconData = new EventEmitter<any>();
-  constructor(private notesService : NoteService,public dialog: MatDialog) {}
+  @Input() notesArray: any;
+  @Input() noteUpdated: any;
+  @Output() updatedIconData = new EventEmitter<any>();
+
+  constructor(public dialog: MatDialog, private dataService: DataService) { }
+
   title: any;
   description: any;
-  reminder:any
+  reminder: any;
+  filterString: any
 
   ngOnInit(): void {
     console.log(this.notesArray, "Notes Array has displayed")
-   
+    this.dataService.receiveData.subscribe((response:any)=>{
+      console.log("Data received",response)
+      this.filterString=response
+    })
   }
 
-  openDialog(note:any): void {
+  openDialog(note: any): void {
     console.log(note)
     const dialogRef = this.dialog.open(UpdateNoteComponent, {
       width: '550px',
-      data:note
+      data: note
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -35,10 +40,11 @@ export class DisplayNoteComponent implements OnInit {
       this.noteUpdated.emit(result)
     });
   }
-  iconMessage($event:any){
+  iconMessage($event: any) {
     this.updatedIconData.emit($event);
   }
-  onClose(){
-  
+  onClose() {
+
   }
 }
+

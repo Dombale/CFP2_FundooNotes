@@ -44,6 +44,7 @@ import { UpdateNoteComponent } from './component/update-note/update-note.compone
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { ArchiveNoteComponent } from './component/archive-note/archive-note.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 
 
@@ -64,6 +65,7 @@ import { ReminderComponent } from './component/reminder/reminder.component';
     TrashNoteComponent,
     ArchiveNoteComponent,
     ReminderComponent,
+    FilterPipe,
     
 
 

@@ -9,9 +9,9 @@ export class NoteService {
   changecolorservice(req: { noteIdList: any[]; color: any; }) {
     throw new Error('Method not implemented.');
   }
- token:any
+  token: any
   constructor(private httpService: HttpService) {
-   }
+  }
   takeNote(reqdata: any) {
     this.token = localStorage.getItem('token');
     let header = {
@@ -27,14 +27,14 @@ export class NoteService {
     this.token = localStorage.getItem('token')
     let headers = {
       headers: new HttpHeaders({
-  
+
         'Content-type': 'application/json',
         'Authorization': this.token
       })
     }
     return this.httpService.getService('/notes/getNotesList', true, headers)
-  
-  
+
+
   }
   updateNote(reqdata: any) {
     this.token = localStorage.getItem('token');
@@ -75,28 +75,28 @@ export class NoteService {
     this.token = localStorage.getItem('token')
     let headers = {
       headers: new HttpHeaders({
-  
+
         'Content-type': 'application/json',
         'Authorization': this.token
       })
     }
     return this.httpService.getService('/notes/getTrashNotesList', true, headers)
-  
-  
+
+
   }
- 
+
   getArchiveNoteList() {
     this.token = localStorage.getItem('token')
     let headers = {
       headers: new HttpHeaders({
-  
+
         'Content-type': 'application/json',
         'Authorization': this.token
       })
     }
     return this.httpService.getService('/notes/getArchiveNotesList', true, headers)
-  
-  
+
+
   }
   changeColors(reqdata: any) {
     this.token = localStorage.getItem('token');
@@ -108,39 +108,49 @@ export class NoteService {
     }
     return this.httpService.postService("/notes/changesColorNotes", reqdata, true, header)
 
-}
-
-reminder(reqdata: any) {
-  let header = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      'Authorization': this.token
-    })
   }
-  return this.httpService.postService("/notes/addUpdateReminderNotes", reqdata, true, header)
 
-}
-reminderNoteList() {
-  this.token = localStorage.getItem('token')
-  let headers = {
-    headers: new HttpHeaders({
+  reminder(reqdata: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    return this.httpService.postService("/notes/addUpdateReminderNotes", reqdata, true, header)
 
-      'Content-type': 'application/json',
-      'Authorization': this.token
-    })
   }
-  return this.httpService.getService('/notes/getReminderNotesList', true, headers)
+  reminderNoteList() {
+    this.token = localStorage.getItem('token')
+    let headers = {
+      headers: new HttpHeaders({
+
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    return this.httpService.getService('/notes/getReminderNotesList', true, headers)
 
 
-}
-deletForevernote(reqdata: any) {
-  let header = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      'Authorization': this.token
-    })
   }
-  return this.httpService.postService("/notes/deleteForeverNotes", reqdata, true, header)
+  deletForevernote(reqdata: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    return this.httpService.postService("/notes/deleteForeverNotes", reqdata, true, header)
 
-}
+  }
+  deletereminder(reqdata: any) {
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    return this.httpService.postService("/notes/removeReminderNotes", reqdata, true, header)
+
+  }
 }
