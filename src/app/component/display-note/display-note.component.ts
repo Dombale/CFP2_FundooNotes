@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
 import { DataService } from 'src/app/services/data.service';
+import { NoteService } from 'src/app/services/noteService/note.service';
 
 @Component({
   selector: 'app-display-note',
@@ -13,12 +14,13 @@ export class DisplayNoteComponent implements OnInit {
   @Input() noteUpdated: any;
   @Output() updatedIconData = new EventEmitter<any>();
 
-  constructor(public dialog: MatDialog, private dataService: DataService) { }
+  constructor(public dialog: MatDialog, private dataService: DataService, private noteservice:NoteService) { }
 
   title: any;
   description: any;
   reminder: any;
-  filterString: any
+  filterString: any;
+  note:any
 
   ngOnInit(): void {
     console.log(this.notesArray, "Notes Array has displayed")
@@ -43,8 +45,16 @@ export class DisplayNoteComponent implements OnInit {
   iconMessage($event: any) {
     this.updatedIconData.emit($event);
   }
-  onClose() {
-
+  removeRemionder(note:any) {
+    let req = {
+      noteIdList: [note.id],
+      userId:localStorage.getItem("userId")
+    }
+    this.noteservice.deletereminder(req).subscribe((response: any) => {
+      console.log("Reminder deleted Successfully", response);
+      
+    })
   }
+ 
 }
 

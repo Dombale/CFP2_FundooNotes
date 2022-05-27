@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
       }
       this.userdata.Login(data).subscribe((response: any) => {
         console.log('login successfull', response);
-       localStorage.setItem("token",response.id)
+       localStorage.setItem("token",response.id);
+       localStorage.setItem("userId", response.userId)
        this.router.navigateByUrl('/home')
       },(error)=>{console.log(error)})
     }

@@ -65,7 +65,7 @@
                         src="../../../assets/unarchive.svg" width="20px" height="20px"></button>
         <button *ngIf=isTrashed mat-icon-button matTooltip="Delete Forever" (click)="deletForever()"> <img
                         src="../../../assets/deleteforever.svg" width="20px" height="20px"></button>
-        <button *ngIf="isTrashed " mat-icon-button matTooltip="Restore"> <img
+        <button *ngIf="isTrashed " mat-icon-button matTooltip="Restore" (click)=" restore()"> <img
                         src="../../../assets/restore.svg" width="20px" height="20px"></button>
         <button *ngIf=!isTrashed mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu"><img
                         src="../../../assets/3dot.svg" width="20px" height="20px"></button>

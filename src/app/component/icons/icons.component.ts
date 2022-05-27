@@ -87,18 +87,18 @@ export class IconsComponent implements OnInit {
       this.updatedIconData.emit(response);
     })
   }
-  
-  // restore(){
-  //   let req = {
-  //     noteIdList: [this.noteObj.id],
-  //     isDeleted: true
-  //   }
-  //   this.noteservice.archivedNote(req).subscribe((response: any) => {
-  //     console.log("Note Restored Successfully", response);
-  //     this.updatedIconData.emit(response);
-  //   })
 
-  // }
+  restore(){
+    let req = {
+      noteIdList: [this.noteObj.id],
+      isDeleted: false
+    }
+    this.noteservice.deleteNote(req).subscribe((response: any) => {
+      console.log("Note Restored Successfully", response);
+      this.updatedIconData.emit(response);
+    })
+
+  }
   changeColor(Notecolor: any) {
     this.noteObj.color;
     let req = {

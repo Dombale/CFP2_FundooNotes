@@ -14,6 +14,7 @@ import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { TrashNoteComponent } from './component/trash-note/trash-note.component';
 import { AuthenticationGuard } from './authentication.guard';
 
+
 const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'register', component: RegistrationComponent },
