@@ -35,7 +35,6 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
-import { DashComponent } from './component/dash/dash.component';
 import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { IconsComponent } from './component/icons/icons.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
@@ -56,7 +55,6 @@ import { FilterPipe } from './Pipes/filter.pipe';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashBoardComponent,
-    DashComponent,
     TakeNoteComponent,
     IconsComponent,
     GetAllNotesComponent,

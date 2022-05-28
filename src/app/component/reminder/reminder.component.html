@@ -1,1 +1,1 @@
-<app-display-note [notesArray]="reminderList" ></app-display-note>
+<app-display-note [notesArray]="reminderList" (updatedIconData)="displayMessage($event)" ></app-display-note>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArchiveNoteComponent } from './component/archive-note/archive-note.component';
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
-import { DashComponent } from './component/dash/dash.component';
 import { DisplayNoteComponent } from './component/display-note/display-note.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';

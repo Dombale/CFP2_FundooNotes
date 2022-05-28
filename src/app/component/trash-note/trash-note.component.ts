@@ -10,6 +10,7 @@ export class TrashNoteComponent implements OnInit {
   trashList: any;
   constructor(private notesService: NoteService) { }
 
+  
   ngOnInit(): void {
     this.getTrashNotes()
   }

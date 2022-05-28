@@ -21,5 +21,7 @@ export class ReminderComponent implements OnInit {
       this.reminderList.reverse();
     })
   }
-
+  displayMessage(event:any){
+    this.reminderNotes();
+  }
 }
