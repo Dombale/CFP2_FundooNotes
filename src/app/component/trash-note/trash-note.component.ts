@@ -9,7 +9,7 @@ import { NoteService } from 'src/app/services/noteService/note.service';
 export class TrashNoteComponent implements OnInit {
   trashList: any;
   constructor(private notesService: NoteService) { }
-
+ 
   
   ngOnInit(): void {
     this.getTrashNotes()

@@ -31,4 +31,5 @@ export class DashBoardComponent implements OnInit {
     console.log(event.target.value)
     this.dataService.sendData(event.target.value)
   }
+  
 }

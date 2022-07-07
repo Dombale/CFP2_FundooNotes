@@ -16,7 +16,7 @@ export class IconsComponent implements OnInit {
 
 
   @Input() noteObj: any;
-  @Output() updatedIconData = new EventEmitter<any>();
+  @Output() updatedIconData = new EventEmitter<any>();//sendmsg
 
 
   datePicker: any;

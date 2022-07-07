@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/noteService/note.service';
 
 @Component({
@@ -7,31 +7,31 @@ import { NoteService } from 'src/app/services/noteService/note.service';
   styleUrls: ['./take-note.component.scss']
 })
 export class TakeNoteComponent implements OnInit {
-  public takeNote : boolean=false;
-   title: string="";
-  description :string="";
-@Output() messageEvent = new EventEmitter<string>();
+  public takeNote: boolean = false;
+  title: string = "";
+  description: string = "";
+  @Output() messageEvent = new EventEmitter<string>();
   constructor(private noteservice: NoteService) { }
 
   ngOnInit(): void {
   }
-  createNote(){
+  createNote() {
     console.log(this.title,
       this.description)
     this.takeNote = true
   }
-  
-  
-  closeNote(){
+
+
+  closeNote() {
     this.takeNote = false
-    let reqdata={
-      title:this.title, description:this.description
+    let reqdata = {
+      title: this.title, description: this.description
     }
     this.noteservice.takeNote(reqdata).subscribe((response: any) => {
       console.log(response);
       this.messageEvent.emit(response)
       console.log("messageEvent", this.messageEvent)
-  })
+    })
   }
 
 

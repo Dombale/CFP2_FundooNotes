@@ -31,6 +31,7 @@ export class GetAllNotesComponent implements OnInit {
     this.getAllNotes();
     console.log($event)
   }
+  
   displayMessage(event:any){
     this.getAllNotes();
   }
